@@ -1,4 +1,4 @@
-import { Repository } from 'typeorm';
+import { MongoRepository } from 'typeorm';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Lesson } from './lesson.entity';
@@ -9,7 +9,7 @@ import { CreateLessonInput } from './create-lesson.input';
 export class LessonService {
   constructor(
     @InjectRepository(Lesson)
-    private readonly lessonRepository: Repository<Lesson>,
+    private readonly lessonRepository: MongoRepository<Lesson>,
   ) {}
 
   async getLessons() {
